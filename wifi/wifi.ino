@@ -28,7 +28,6 @@ void setup()
 
 void loop() 
 {
-  // Repetir lo recibido por el ESP8266 hacia el monitor serial
   if (ESP.available())
   { 
     char c = ESP.read() ;
@@ -42,13 +41,12 @@ void loop()
       if (command.indexOf("led")>0)
       {
         digitalWrite( 13, !digitalRead(13)) ;
-        Serial.println("Invirtiendo pin 13");
+        Serial.println("Invert pin 13");
       }
       command="";
     }
   }
 
-     // Repetir lo recibido por el monitor serial hacia el ESP8266
   if (Serial.available())
   {  
     char c = Serial.read();
